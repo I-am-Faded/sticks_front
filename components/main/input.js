@@ -31,7 +31,7 @@ const Input = ({type, value, onChange, minWidth}) => {
       ref={inputRef} // Привязываем ref к инпуту
       className={utilStyles.input}     
       type='text'
-      inputmode="numeric" // Цифровая клавиатура на мобильных устройствах
+      // inputmode="numeric" // Цифровая клавиатура на мобильных устройствах
       value={value}
       onChange={onChange}
       // pattern="\d*"//number only
