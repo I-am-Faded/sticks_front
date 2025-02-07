@@ -43,7 +43,7 @@ const Index = () => {
     //   localStorage.setItem('playerSessionId', playerSessionId);
     // }
     function generateUniqueSessionId() {
-      return uuid
+      return uuid()
     }
 
     // Получение идентификатора сессии из localStorage
