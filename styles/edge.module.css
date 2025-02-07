@@ -1,0 +1,86 @@
+.edge{
+    position: absolute;
+    /* min-width:  100%;
+    min-height: 4px;  */
+    background-color: #070000;
+    transition: box-shadow 0.1s ease;
+    /* margin-left: 1px; */
+
+}
+
+.edge-top {
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+  }
+  
+  .edge-left {
+    top: 0;
+    left: -4px;
+    height: 100%;
+    width: 4px;
+    /* transform-origin: top left; */
+    /* transform: rotate(90deg) ; */
+  }
+  
+  .edge-bottom {
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+  }
+  
+  .edge-right {
+    top: 0;
+    right: -4px; /* Учитываем ширину */
+    height: 100%;
+    width: 4px;
+    /* transform-origin: top left;
+    transform: rotate(90deg) ; */
+    /* background-color:yellow; */
+  }
+  
+.edge:active{
+  background-color:rgb(226, 43, 211);
+} 
+
+.edge:hover{
+  background-color: rgb(0, 152, 172);
+  box-shadow: 0 0 0 1pt #230000;
+}
+
+.first_left{
+  left: -4px;
+  width: 4px;
+  height: 30px;
+}
+.first_right{
+  right: -4px;
+  width: 4px;
+  height: 30px;
+}
+.clicked{
+  background-color: aqua;
+  touch-action: none;
+}
+.edge.clicked:hover{
+  box-shadow: none;
+}
+.edge.clicked:active{
+    background-color: aqua;
+} 
+
+.sides{
+  bottom: -4px;
+}
+
+@media (hover: none) and (pointer: coarse) {
+  .edge:hover {
+    /* Сбрасываем стили hover */
+    background-color: aqua;
+
+    box-shadow: 0 0 0 1pt #230000;
+    /* Добавьте другие свойства, которые нужно сбросить */
+  }
+}

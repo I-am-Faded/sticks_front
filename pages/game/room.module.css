@@ -1,0 +1,68 @@
+.container{ 
+    /* width: 100%; */
+    min-height: 100svh;
+    background-color: #efddc4;
+}
+
+.nicknameWrapper {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Чтобы клики не попадали на никнеймы */
+  }
+  
+  .nickname {
+    position: absolute;
+    font-size: 18px;
+    font-weight: bolder;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    border-radius: 8px;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  .activeNickname {
+    background-color: rgba(0, 255, 0, 0.8); /* Подсветка активного игрока */
+  }
+  
+  /* Позиции никнеймов в углах */
+  .player1 {
+    top: 30px;
+    left: 20px;
+  }
+  
+  .player2 {
+    top: 30px;
+    right: 20px;
+  }
+  
+  .player3 {
+    bottom: 20px;
+    left: 20px;
+  }
+  
+  .player4 {
+    bottom: 20px;
+    right: 20px;
+  }
+
+  .winner{
+    position: absolute;
+    padding: 5px 15px;
+    font-size: larger;
+    font-weight: bold;
+    left: 40%;
+    top: 20px;
+    border-radius: 5px;
+    background-color: rgb(25, 214, 94);
+  }
+  .homeButton{
+    position: relative;
+    top: 65px;
+    left: 20px;
+  }
+
+  @media (max-width: 320px) {
+ 
+  }

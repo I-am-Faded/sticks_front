@@ -1,0 +1,33 @@
+.input{
+    border-radius: 10px;
+    border: 0 ;
+    border-color: rgb(112, 145, 134);
+    background-color: aquamarine;
+    padding: 2px 7px;
+    font-size: large;
+    text-align: center;
+    
+}
+
+.input[type="text"]:hover{
+    
+    border-color: #4caf50; /* Зеленая рамка при фокусе */
+    box-shadow: 0 0 5px rgba(30, 255, 0, 0.5); /* Тень при фокусе */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Анимация для бордера и тени */
+}
+.input[type="text"]:focus{
+    outline: none; /* Убираем стандартный outline */
+    border-color:1px solid #00ff08; /* Зеленая рамка при фокусе */
+    box-shadow: 0 0 5px rgba(30, 255, 0, 0.5); /* Тень при фокусе */
+}
+/* Скрыть стрелки в input[type="number"] */
+.input[type="number"]::-webkit-inner-spin-button,
+.input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* .input[type="number"] {
+  -moz-appearance: textfield;
+} */
+  /* Для Firefox */

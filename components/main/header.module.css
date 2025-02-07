@@ -1,0 +1,67 @@
+.header {
+    /* background-color: #fff; */
+    color: #000;
+    text-align:center;
+    padding: 10px;
+}
+  
+.headerContent {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content:center;
+}
+  
+  .h1 {
+    margin: 0;
+    font-size: 70px;
+    font-family: 'Sriracha';
+    color:rgb(32, 158, 131);
+}
+  
+.imageContainer {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column; /* Изменено на column */
+    align-items: center;
+    position: relative;
+    /* background-color: antiquewhite; */
+    
+}
+  
+.img {
+    margin-left: 5px;
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+  
+.p {
+    /* margin-left: 5px; Добавлен отступ слева */
+    /* margin-top: 75px; Отступ сверху */
+    position: relative;
+    top: 35px; 
+    font-size: 25px;
+    font-weight:700;
+    /* background-color: #333; */
+    color:rgb(0, 175, 17);
+    padding-left: 3px;
+    /* margin: 0; */
+}
+
+@media (max-width: 670px) {
+    .h1{
+        font-size: 34px;
+    }
+    .header{
+        padding: 0;
+    }
+}
+@media (max-width: 435px) {
+    .h1{
+        font-size: 29px;
+    }
+    .img{
+        max-width: 77px;
+    }
+}

@@ -1,0 +1,132 @@
+.container {
+    position: relative;
+     width: 25px; 
+    height: 25px;
+    margin-right: 4px;
+  }
+ 
+.marker{
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 15px;
+  color: #000;
+  touch-action: none;
+  cursor: default;
+  line-height: 1;
+}
+
+.firstRow{
+  position: relative;
+  width: 25px;
+  height: 30px;
+  margin-right: 4px;
+}
+.rowSides{
+  position: relative;
+  width: 25px;
+  /* height: 30px; */
+  top:-4px;
+  margin-right: 4px;
+}
+
+
+.board {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10%;
+}
+.boardDiamond{
+  margin:7% 0 0 50%;
+}
+
+.row {
+  display: flex;
+  /* flex-grow: 1; Растягиваем элементы */
+  /* width: auto; Убираем фиксированную ширину */
+}
+
+
+/* ................. */
+
+/* .edge {
+  position: absolute;
+  background-color: #ddd;
+  cursor: pointer;
+} */
+
+/* .edge-top,
+.edge-bottom {
+  width: 40px;
+  height: 5px;
+  left: 0;
+} */
+
+/* .edge-left,
+.edge-right {
+  height: 40px;
+  width: 5px;
+  top: 0;
+}
+
+.edge-left {
+  left: 0;
+}
+
+.edge-right {
+  right: 0;
+}
+
+.edge-bottom {
+  bottom: 0;
+} */
+
+.clicked {
+  background-color: #333; /* Цвет после клика */
+}
+
+/*  */
+
+@media(max-width:620px){
+  .board{
+    margin-top: 20%;
+  }
+  .firstRow{
+    width: 20px;
+    height: 25px;
+  }
+  .container {
+     width: 20px; 
+    height: 20px;
+  }
+}
+@media(max-width:550px){
+  .board{
+    margin-top: 25%;
+  }
+  .firstRow{
+    width: 20px;
+    height: 25px;
+  }
+  .container {
+     width: 20px; 
+    height: 20px;
+  }
+}
+
+@media(max-width:370px){
+  .board{
+    margin-top: 35%;
+  }
+  .firstRow{
+    width: 15px;
+    height: 30px;
+  }
+  .container {
+     width: 15px; 
+    height: 25px;
+  }
+}
