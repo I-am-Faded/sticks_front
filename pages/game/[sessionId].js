@@ -33,8 +33,8 @@ const GameSession = () => {
   const [moves, setMoves] = useState([]);
   const [score, setScore] =useState([]);
   // const [typeBoard, setTypeBoard] = useState('square');
-  const [numRows, setNumRowns] = useState(10);
-  const [numColumns, setNumColumns] = useState(10);
+  const [numRows, setNumRowns] = useState(15);
+  const [numColumns, setNumColumns] = useState(15);
   const [gameWiner, setGameWiner] = useState(null);
   const [copied, setCopied] = useState(false);
 

@@ -48,12 +48,12 @@ const Index = () => {
 
     // Получение идентификатора сессии из localStorage
     function getSessionId() {
-      let sessionId = sessionStorage.getItem('playerSessionId');
-      if (!sessionId) {
+      let sessionIdGet = sessionStorage.getItem('playerSessionId');
+      if (!sessionIdGet) {
         sessionId = generateUniqueSessionId();
         sessionStorage.setItem('playerSessionId', sessionId);
       }
-      return sessionId;
+      return sessionIdGet;
     }
 
     // Устанавливаем playerSessionId в состояние
