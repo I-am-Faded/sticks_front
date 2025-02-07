@@ -53,12 +53,14 @@
 .first_left{
   left: -4px;
   width: 4px;
-  height: 30px;
+  /* height: 100%; */
+  height: calc(100% + 4px);
+
 }
 .first_right{
   right: -4px;
   width: 4px;
-  height: 30px;
+  height: calc(100% + 4px);
 }
 .clicked{
   background-color: aqua;
@@ -84,3 +86,6 @@
     /* Добавьте другие свойства, которые нужно сбросить */
   }
 }
+/* @media(max-width:620px){
+  .s
+} */

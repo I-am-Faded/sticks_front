@@ -13,6 +13,7 @@ const GameBoard = ({numRows, numColumns, ws, roomId, isConnected, sessionId, cur
   const [nextSquareLeftEdgeClicked, setNextSquareLeftEdgeClicked] = useState({});
   const [prewSquareBottomEdgeClicked, setPrewSquareBottomEdgeClicked] = useState({});
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [marginSize, setMarginSize] = useState(29);
 
   useEffect(() => {
 
@@ -90,7 +91,25 @@ const GameBoard = ({numRows, numColumns, ws, roomId, isConnected, sessionId, cur
   //   };
   // }, [ws]);
   useEffect(() => {
+    const getSquareSize = () => {
+      return  window.innerWidth < 370? 19 : window.innerWidth < 620 ? 24 : 29; // Меняем размер в зависимости от экрана
+    };
+
+    // Устанавливаем CSS переменные
+    // document.documentElement.style.setProperty("--square-size", `${getSquareSize()}px`);
+    setMarginSize(getSquareSize());
+    // Обновляем при изменении размера окна
+    const handleResize = () => {
+      // document.documentElement.style.setProperty("--square-size", `${getSquareSize()}px`);
+    setMarginSize(getSquareSize());
+      
+    };
+
+    window.addEventListener("resize", handleResize);
+
     moves.forEach((move) => handleMove(move));
+
+    return () => window.removeEventListener("resize", handleResize);
   }, [moves]);
 
   const handleMove = useCallback((move) => {
@@ -327,12 +346,13 @@ const GameBoard = ({numRows, numColumns, ws, roomId, isConnected, sessionId, cur
   (
 
  <div className={utilStyles.boardDiamond}>
-  {rowConfig.map((numSquares, rowIndex) => (
-    
+  {rowConfig.map((numSquares, rowIndex) => {
+  
+    return(
     <div 
       key={rowIndex} 
       className={utilStyles.row} 
-      style={{ marginLeft: `-${29*numSquares/2}px` }} // Смещение для создания ромбовидной структуры
+      style={{ marginLeft: `-${marginSize*numSquares/2}px` }} // Смещение для создания ромбовидной структуры
     >
       {Array.from({ length: numSquares }, (_, columnIndex) => {
         const key = `${rowIndex}-${columnIndex}`;
@@ -351,7 +371,8 @@ const GameBoard = ({numRows, numColumns, ws, roomId, isConnected, sessionId, cur
         );
       })}
     </div>
-  ))}
+    )
+})}
    <Modal isOpen={isModalOpen} onClose={closeModal}>
         <h2>Ошибка!</h2>
         <p>Вы сделали ход не в свою очередь.</p>

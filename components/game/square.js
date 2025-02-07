@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import Edge from './edge';
 import utilStyles from '../../styles/square.module.css';
-const Square = ({currentTurn, isSides, isFirstRow, isLastInRow, onClick, nextSquareLeftEdgeClicked, prewSquareBottomEdgeClicked, rowIndex, columnIndex, edgesClickedFromServer }) => {
+const Square = ({currentTurn, isSides, isFirstRow, isLastInRow,  onClick, nextSquareLeftEdgeClicked, prewSquareBottomEdgeClicked, rowIndex, columnIndex, edgesClickedFromServer }) => {
   const [completedMarker, setCompletedMarker] = useState(null); // Сохраняем маркер завершенного квадрата
 
   const [edgesClicked, setEdgesClicked] = useState({
@@ -70,7 +70,7 @@ const Square = ({currentTurn, isSides, isFirstRow, isLastInRow, onClick, nextSqu
       isClicked={edgeIsClicked('bottom')} // Передаем состояние клика
       />
       <Edge 
-      isFirstRow ={true} 
+      isFirstRow ={ true} 
       direction={'left'} 
       onClick={() => handleEdgeClick('left')}
       id={`edge-${rowIndex}-${columnIndex}-left`}

@@ -40,7 +40,7 @@
   margin-top: 10%;
 }
 .boardDiamond{
-  margin:7% 0 0 50%;
+  margin:10% 0 0 50%;
 }
 
 .row {
@@ -48,6 +48,7 @@
   /* flex-grow: 1; Растягиваем элементы */
   /* width: auto; Убираем фиксированную ширину */
 }
+
 
 
 /* ................. */
@@ -91,8 +92,15 @@
 /*  */
 
 @media(max-width:620px){
+  .rowSides{
+    width: 20px;
+    height: 20px;
+  }
   .board{
     margin-top: 20%;
+  }
+  .boardDiamond{
+    margin:20% 0 0 50%;
   }
   .firstRow{
     width: 20px;
@@ -107,6 +115,9 @@
   .board{
     margin-top: 25%;
   }
+  .boardDiamond{
+    margin:25% 0 0 50%;
+  }
   .firstRow{
     width: 20px;
     height: 25px;
@@ -118,8 +129,15 @@
 }
 
 @media(max-width:370px){
+  .rowSides{
+    width: 15px;
+    height: 25px;
+  }
   .board{
     margin-top: 35%;
+  }
+  .boardDiamond{
+    margin:35% 0 0 50%;
   }
   .firstRow{
     width: 15px;
