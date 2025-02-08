@@ -321,7 +321,7 @@ const Index = () => {
       </form>
 
       </div>
-
+      <GoogleAds />
     </div>
   );
 };
