@@ -60,7 +60,7 @@ const Index = () => {
     const sessionId = getSessionId();
     setPlayerSessionId(sessionId);
     
-    wsClient.connect();
+    // wsClient.connect();
     const handleMessage = (message) => {
       console.log('Message received on Index page:', message);
 
@@ -82,6 +82,7 @@ const Index = () => {
 
     return () => {
       if (wsClient) {
+        
         wsClient.removeMessageHandler(handleMessage); // Очищаем обработчик при выходе со страницы
       }
     };

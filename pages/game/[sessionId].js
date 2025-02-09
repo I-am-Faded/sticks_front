@@ -37,15 +37,16 @@ const GameSession = () => {
   const [numColumns, setNumColumns] = useState(15);
   const [gameWiner, setGameWiner] = useState(null);
   const [copied, setCopied] = useState(false);
+  // const [playerSessionId, setPlayerSessionId] = useState(null);
 
   const typeBoardRef = useRef();
 
 
 
-  const handleOpen = useCallback(() => {
-      console.log('WebSocket connection established');
-      setIsConnected(true); // Соединение установлено
-    },[]);
+//  const handleOpen = useCallback(() => {
+//       console.log('WebSocket connection established');
+//       setIsConnected(true); // Соединение установлено
+//     },[]); 
     
   // wsClient.connect((message) => {
   //   // Обработка полученных сообщений
@@ -82,37 +83,110 @@ const GameSession = () => {
       setMoves((prevMoves) => [...prevMoves, message.move]); // Добавление нового хода
     }
   }, []);
+  const playerSessionId = typeof window !== 'undefined' ? sessionStorage.getItem('playerSessionId') : null;
     
+  const handleOpen = () => {
+    if (sessionId && playerSessionId) {
+      console.log('WebSocket connection established');
+      
+
+      // Отправляем синхронизацию, как только соединение установлено и есть sessionId
+      wsClient.send({
+        type: 'sync-moves',
+        roomId: sessionId,
+        playerSessionId: playerSessionId,
+      });
+
+      // Отправляем запрос на получение никнеймов
+      wsClient.send({
+        type: 'getNickName',
+        roomId: sessionId,
+      });
+    } else {
+      console.log('Session ID or playerSessionId is missing');
+    }
+  };
   useEffect(()=>{
     // const storedWinners = localStorage.getItem('gameWiner');
     // if (storedWinners) {
     //   setGameWiner(JSON.parse(storedWinners));
     // }
     // let playerSessionId = sessionStorage.getItem('playerSessionId');
+   
+      // if (!sessionId) {
+      //   console.log('sessionId is not available yet');
+      //   return; // Ждем, пока sessionId станет доступным
+      // }
     // console.log(playerSessionId);
-    const playerSessionId = typeof window !== 'undefined' ? sessionStorage.getItem('playerSessionId') : null;
+    if (!wsClient || !sessionId) return; // Проверка, что WebSocket и sessionId существуют
 
-    if (!sessionId || !playerSessionId) {
-      // Ждем, пока sessionId или playerSessionId не станет доступен
-      console.log('Ждем доступности sessionId или playerSessionId');
+    
+    
+    // if (!playerSessionId) {
+    //   console.log('Player session ID not found');
+    //   return;
+    // }
+
+   
+    // const checkPlayerSession = () => {
+    //   // Проверяем наличие playerSessionId в sessionStorage
+    //   const storedSessionId = typeof window !== 'undefined' ? sessionStorage.getItem('playerSessionId') : null;
+
+    //   if (storedSessionId) {
+    //     setPlayerSessionId(storedSessionId);
+    //   } else {
+    //     console.log('Player session ID не найден в sessionStorage');
+    //   }
+    // };
+
+    // checkPlayerSession();
+    // const intervalId = setInterval(() => {
+    //   if (!playerSessionId) {
+    //     console.log('Попытка повторного запроса playerSessionId...');
+    //     checkPlayerSession();
+    //   }
+    // }, 5000);  
+    if (!isConnected && sessionId && playerSessionId) {
+      // Отправка синхронизации, когда соединение готово
+      setIsConnected(true);
+      wsClient.send({
+        type: 'getNickName',
+        roomId: sessionId,
+      });
       
-      return;
+      wsClient.send({
+        type: 'sync-moves',
+        roomId: sessionId,
+        playerSessionId: playerSessionId,
+      });
+      console.log('Sync moves sent to server (from useEffect)');
     }
+    if (isConnected) {
+      wsClient.onOpen(handleOpen); // Устанавливаем обработчик для события открытия соединения
+    } 
+    // if(sessionId && wsClient ){
+    //   console.log('WebSocket connection established');
+    //   setIsConnected(true);
+    //   wsClient.send({
+    //     type: 'getNickName',
+    //     roomId : sessionId,
+    //   });
+    //   console.log('send sync moves to server native')
+  
+    //   wsClient.send({
+    //     type:'sync-moves',
+    //     roomId : sessionId,
+    //     playerSessionId: playerSessionId ,
+    //   })
+    // }
 
-    wsClient.onOpen(handleOpen); // Устанавливаем обработчик для события открытия соединения
+    // wsClient.onOpen(handleOpen); // Устанавливаем обработчик для события открытия соединения
+    
     wsClient.onMessage(handleMessage);
     
-    // if (sessionId) {
+
  
-    wsClient.send({
-      type: 'getNickName',
-      roomId : sessionId,
-    });
-    wsClient.send({
-      type:'sync-moves',
-      roomId : sessionId,
-      playerSessionId,
-    })
+   
 
     const handleRouteChange = () => {
       if (wsClient) {
@@ -126,15 +200,16 @@ const GameSession = () => {
    
   // }
   return () => {
+    console.log("Cleaning up WebSocket...");
     // wsClient.removeMessageHandler(handleMessage); // Очищаем обработчик при выходе со страницы
     wsClient.removeMessageHandler(handleMessage); // Очищаем обработчик
+    // wsClient.disconnect();
 
     router.events.off('routeChangeStart', handleRouteChange);
-    wsClient.disconnect();
 
     // wsClient.disconnect();
   };
-}, [wsClient, sessionId, handleMessage, handleOpen]);
+}, [wsClient, sessionId,isConnected, handleMessage]);
 
 const showWinner = (gameWiner) =>{
   if(gameWiner){
@@ -190,6 +265,9 @@ const showWinner = (gameWiner) =>{
   //   console.log(playerId, currentTurn)
   // }, 4000);
   // Возвращаем JSX для вашей страницы
+  if (!sessionId) {
+    return <div>Loading...</div>;
+  }
   return (
     typeBoardRef.current ?
 
