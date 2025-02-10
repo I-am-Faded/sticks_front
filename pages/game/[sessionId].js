@@ -304,7 +304,7 @@ const showWinner = (gameWiner) =>{
            }}> {sessionId}</b> 
         {copied && <span> Copied to clipboard!</span>} 
         </p>
-        <Link className={styles.homeButton} href={'/'}>home</Link>
+        <Link className={styles.homeButton} href={'/'}>Home</Link>
         {gameWiner && showWinner(gameWiner)}
         {/* {nickName && <div>nickName:{nickName}</div>} */}
 
