@@ -188,10 +188,14 @@ const GameSession = () => {
  
    
 
-    const handleRouteChange = () => {
-      if (wsClient) {
+    const handleRouteChange = (url) => {
+      // if (wsClient) {
+      //   wsClient.disconnect();
+      //   console.log('WebSocket closed on route change');
+      // }
+      if (url === '/'&& wsClient.isConnected) {  // Только если уходим на главную
+        console.log('WebSocket закрывается, так как уходим на главную');
         wsClient.disconnect();
-        console.log('WebSocket closed on route change');
       }
     };
   
