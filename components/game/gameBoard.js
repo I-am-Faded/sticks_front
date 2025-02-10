@@ -335,8 +335,8 @@ const GameBoard = ({numRows, numColumns, ws, roomId, isConnected, sessionId, cur
       </div>
     ))}
      <Modal isOpen={isModalOpen} onClose={closeModal}>
-        <h2>Ошибка!</h2>
-        <p>Вы сделали ход не в свою очередь.</p>
+        <h2>Warning !</h2>
+        <p>You made a move out of turn</p>
       </Modal>
       <audio ref={audioRef} src="/clickSound.mp3" preload="auto" />
 
@@ -374,8 +374,8 @@ const GameBoard = ({numRows, numColumns, ws, roomId, isConnected, sessionId, cur
     )
 })}
    <Modal isOpen={isModalOpen} onClose={closeModal}>
-        <h2>Ошибка!</h2>
-        <p>Вы сделали ход не в свою очередь.</p>
+        <h2>Warning !</h2>
+        <p>You made a move out of turn</p>
       </Modal>
       <audio ref={audioRef} src="/clickSound.mp3" preload="auto" />
 

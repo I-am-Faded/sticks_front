@@ -269,9 +269,7 @@ const showWinner = (gameWiner) =>{
   //   console.log(playerId, currentTurn)
   // }, 4000);
   // Возвращаем JSX для вашей страницы
-  if (!sessionId) {
-    return <div>Loading...</div>;
-  }
+ 
   return (
     typeBoardRef.current ?
 
