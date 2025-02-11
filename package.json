@@ -3,10 +3,12 @@
   "scripts": {
     "build": "next build",
     "dev": "next dev",
-    "start": "next start"
+    "start": "next start",
+    "sitemap": "next-sitemap"
   },
   "dependencies": {
     "next": "latest",
+    "next-sitemap": "^4.2.3",
     "next-translate": "^2.6.2",
     "next-translate-plugin": "^2.6.2",
     "react": "18.2.0",
@@ -16,4 +18,5 @@
   "engines": {
     "node": ">=18"
   }
+  
 }

@@ -264,7 +264,33 @@ const Index = () => {
     <div className={styles.body}>
       <div className={styles.container}>
        <Head>
+        <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="google-site-verification" content="F4V7ZD5Ytr9N-y0ctKveLvTyKa5-S1snJh565wwoL3Q" />
+        {/* Основные мета-теги */}
+
+        <meta name="description" content="online game for 2-4 player. Click on the edges of the squares to collect all four sides of the square to get a point." />
+        <meta name="keywords" content="sticks game, online game, multiplayer, game with friends, game for frinds, 2 players, 4 players, flash game, competitive, игры,  крестики-нолики, мультиплеер " />
+        <meta name="author" content="Im_Fadead" />
+
+        {/* Open Graph (для соцсетей) */}
+        <meta property="og:title" content="Sticks" />
+        <meta property="og:description" content="online game for 2-4 player." />
+        <meta property="og:image" content="/header.png" />
+        <meta property="og:url" content="https://sticks-front.vercel.app/" />
+        <meta property="og:type" content="website" />
+
+        {/* Twitter Card (если сайт делится в Twitter) */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Sticks" />
+        <meta name="twitter:description" content="online game for 2-4 player." />
+        <meta name="twitter:image" content="/header.png" />
+
+        {/* Указание языка страницы */}
+        <meta httpEquiv="Content-Language" content="en, ru" />
+
+        {/* Favicon (иконка сайта) */}
+        <link rel="icon" href="/favicon.ico" />
         <title>{t('home page')}</title>
       </Head>
       
