@@ -39,7 +39,8 @@ img {
 }
 
 label{
-  color:rgb(9, 92, 74)
+  color: rgb(36 163 136);
+  margin-right: 5px;
 }
 button{
  display: inline-flex; /* Для правильного выравнивания содержимого */

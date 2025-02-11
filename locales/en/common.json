@@ -1,0 +1,20 @@
+{
+    "home page": "Home page",
+    "header" : "Welcome to Sticks",
+    "nickname": "Your nickname:",
+    "room code": "Room code:",
+    "join room": "Join Room",
+    "create room": "Create Room",
+    "copied": "Copied to clipboard!",
+    "home button": "Home",
+    "loading": "Loading...",
+    "close": "close",
+    "warning": "Warning!",
+    "warning massage": "You made a move out of turn",
+    "rows input": "Rows (4 to 15):",
+    "count players": "count of players:",
+    "coloumns input": "Columns (4 to 15):",
+    "warning settings": "number must be between 4 and 15",
+    "choose map": "Choose Your Map Layout",
+    "players": "players"
+}

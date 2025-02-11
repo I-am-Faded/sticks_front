@@ -6,8 +6,10 @@ import WebSocketClient from '../../webSocket/webSocketClient';
 import GameBoard from '../../components/game/gameBoard';
 import styles from './room.module.css';
 import GoogleAds from '../../components/main/googleAds';
+import useTranslation from 'next-translate/useTranslation';
 
 const GameSession = () => {
+  const { t } = useTranslation('common');  // 'common' - это namespace
 
 
   // useEffect(() => {
@@ -294,7 +296,7 @@ const showWinner = (gameWiner) =>{
 
     
         <p>
-        Session ID: <b onClick={handleCopy}style={{
+        {t('room code')} <b onClick={handleCopy}style={{
             maxWidth: '100%',        // Ограничиваем максимальную ширину
             overflow: 'hidden',      // Скрываем текст, который не помещается
             textOverflow: 'ellipsis', // Добавляем многоточие
@@ -302,9 +304,9 @@ const showWinner = (gameWiner) =>{
             cursor: 'pointer',       // Курсор в виде указателя
             color: 'blue',           // Цвет текста
            }}> {sessionId}</b> 
-        {copied && <span> Copied to clipboard!</span>} 
+        {copied && <span> {t('copied')}</span>} 
         </p>
-        <Link className={styles.homeButton} href={'/'}>Home</Link>
+        <Link className={styles.homeButton} href={'/'}>{t('home button')}</Link>
         {gameWiner && showWinner(gameWiner)}
         {/* {nickName && <div>nickName:{nickName}</div>} */}
 
@@ -312,6 +314,7 @@ const showWinner = (gameWiner) =>{
 
         {/* <button onClick={handleSendMessage}>Send Message to Server</button> */}
         <GameBoard 
+        t={t}
         ws={wsClient}
         sessionId = {sessionId}
         isConnected = {isConnected}
@@ -327,7 +330,7 @@ const showWinner = (gameWiner) =>{
 
     </div>
 
-    : <div>Loading</div>
+    : <div>{t('loading')}</div>
   );
 };
 

@@ -5,7 +5,7 @@ import { useWebSocket } from '../../webSocket/websocketContext';
 import Modal from '../main/modal.js';
 
 
-const GameBoard = ({numRows, numColumns, ws, roomId, isConnected, sessionId, currentTurn, playerId, moves, typeBoard}) => {
+const GameBoard = ({numRows, numColumns, ws, roomId, isConnected, sessionId, currentTurn, playerId, moves, typeBoard, t}) => {
   // {numRows, numSquaresInRow}
 
   const [clickedEdges, setClickedEdges] = useState({});;
@@ -335,8 +335,8 @@ const GameBoard = ({numRows, numColumns, ws, roomId, isConnected, sessionId, cur
       </div>
     ))}
      <Modal isOpen={isModalOpen} onClose={closeModal}>
-        <h2>Warning !</h2>
-        <p>You made a move out of turn</p>
+        <h2>{t('warning')}</h2>
+        <p>{t('warning massage')}</p>
       </Modal>
       <audio ref={audioRef} src="/clickSound.mp3" preload="auto" />
 
@@ -374,8 +374,8 @@ const GameBoard = ({numRows, numColumns, ws, roomId, isConnected, sessionId, cur
     )
 })}
    <Modal isOpen={isModalOpen} onClose={closeModal}>
-        <h2>Warning !</h2>
-        <p>You made a move out of turn</p>
+        <h2>{t('warning')}</h2>
+        <p>{t('warning massage')}</p>
       </Modal>
       <audio ref={audioRef} src="/clickSound.mp3" preload="auto" />
 

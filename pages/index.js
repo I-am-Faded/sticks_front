@@ -10,8 +10,12 @@ import GameSettings from '../components/main/createSetting';
 import Image from 'next/image';
 import { v4 as uuid } from 'uuid';
 import GoogleAds from '../components/main/googleAds';
+import useTranslation from 'next-translate/useTranslation';
+
 
 const Index = () => {
+  const { t } = useTranslation('common');  // 'common' - это namespace
+  
 
   // useEffect(() => {
   //   document.body.classList.add(styles.body);
@@ -36,6 +40,7 @@ const Index = () => {
   // const ws = new WebSocketClient();
  
   useEffect(() => {
+    
     // const playerSessionId = localStorage.getItem('playerSessionId');
 
     // if (!playerSessionId) {      
@@ -260,7 +265,7 @@ const Index = () => {
       <div className={styles.container}>
        <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>Home Page</title>
+        <title>{t('home page')}</title>
       </Head>
       
       <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4788836396603422"
@@ -268,7 +273,7 @@ const Index = () => {
       <Header />
       <div className={styles.container}>
         <label>
-          Your nickname:
+          {t('nickname')}
           <Input
                 minWidth={110}
                 type="text"
@@ -281,7 +286,7 @@ const Index = () => {
 
       <div className={styles.nav}>
         <label>
-          Room code:
+          {t('room code')}
           <Input
             minWidth={110}
             type="text"
@@ -290,11 +295,11 @@ const Index = () => {
           />
         </label>
         <button type="button" onClick={joinRoom}>
-          Join Room
+          {t('join room')}
         </button> 
 
         <button type="button" onClick={createRoom}>
-          Create Room
+          {t('create room')}
         </button>
 
         <button type="button" className={styles.settingsButton} onClick={settingsOpen}>
@@ -313,6 +318,7 @@ const Index = () => {
            MIN_ROWS_COLUMNS={MIN_ROWS_COLUMNS}
            MAX_ROWS_COLUMNS={MAX_ROWS_COLUMNS}
            setWarningMessage={setWarningMessage}
+           t={t}
           />
 
         
@@ -324,7 +330,9 @@ const Index = () => {
       </div>
       <GoogleAds />
     </div>
+    
   );
 };
+
 
 export default Index;
