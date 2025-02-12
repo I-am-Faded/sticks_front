@@ -1,6 +1,9 @@
 # *
 User-agent: *
 Allow: /
+Allow: /ru
+Allow: /en
+Allow: /game/
 
 # Host
 Host: https://sticks-front.vercel.app
