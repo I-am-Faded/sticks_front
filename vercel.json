@@ -1,0 +1,11 @@
+{
+    "routes": [
+      {
+        "src": "/sitemap.xml",
+        "dest": "/sitemap.xml",
+        "headers": {
+          "Cache-Control": "no-cache, no-store, must-revalidate"
+        }
+      }
+    ]
+  }
