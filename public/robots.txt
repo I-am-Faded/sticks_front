@@ -4,6 +4,7 @@ Allow: /
 Allow: /ru
 Allow: /en
 Allow: /game/
+Allow: /sitemap.xml
 
 # Host
 Host: https://sticks-front.vercel.app
