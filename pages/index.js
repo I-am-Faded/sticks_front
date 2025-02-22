@@ -292,10 +292,11 @@ const Index = () => {
         {/* Favicon (иконка сайта) */}
         <link rel="icon" href="/favicon.ico" />
         <title>{t('home page')}</title>
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4788836396603422"
+     crossorigin="anonymous"></script>
       </Head>
       
-      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4788836396603422"
-     crossorigin="anonymous"></script>
+      
       <Header />
       <div className={styles.container}>
         <label>
