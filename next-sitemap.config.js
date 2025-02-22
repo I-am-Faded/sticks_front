@@ -7,9 +7,11 @@ module.exports = {
     policies: [
       {
         userAgent: '*',
-        allow: ['/', '/ru', '/en', '/game/'],
-
+        allow: '/',
       },
+    ],
+    additionalSitemaps: [
+      'https://sticks-front.vercel.app/sitemap.xml',
     ],
   },
   async headers() {
